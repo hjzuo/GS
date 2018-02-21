@@ -21,9 +21,6 @@
 %     model=pi_signal.*exp(i*angle(gx));
 %     figure(7),imagesc(abs(gx)); title(num2str(k));
 % end
-% 
-% 
-% 
 % %https://www.mathworks.com/matlabcentral/answers/245368-gerchberg-saxton-algorithm
 % A = fftshift(ifft2(fftshift(Target)));
 % for i=1:25
@@ -41,10 +38,7 @@
 % %And 'Target' contains your requested pattern.
 % 
 % %The phase mask can be presented at the end of the for loop:
-% 
-% imagesc(angle(A)) 
-% 
-% %%
+% % imagesc(angle(A)) 
 % %https://www.mathworks.com/matlabcentral/answers/374327-gradient-descent-method-with-gerchberg-saxton-algorithm
 % clc
 % close all
@@ -74,8 +68,6 @@
 % end
 % figure(3)
 % plot(t,err);
-
-
 %% reference for inversal patern generation:
 % https://www.mathworks.com/matlabcentral/fileexchange/65979-gerchberg-saxton-algorithm?s_tid=answers_rc2-2_p5_MLT
 clear all
