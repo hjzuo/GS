@@ -71,19 +71,19 @@
 %% reference for inversal patern generation:
 % https://www.mathworks.com/matlabcentral/fileexchange/65979-gerchberg-saxton-algorithm?s_tid=answers_rc2-2_p5_MLT
 clear all
-original=double(imread('phase_to_nasa.bmp'));
+original=double(imread('phase_to_abcd_setting_sample_2.bmp'));
 signal = original;
 
 signal = signal-128;
 signal = signal * pi / max(max(signal));
-s=150;
+s=256;
 input_intensity=ones([s,s]) ;
 B = abs(input_intensity) .* exp(1i*signal);
 C = fftshift(fft2(fftshift(B)));
-% imagesc(abs(C)) 
+imagesc(abs(C)) 
 
 
-h_max = 2; %  unit m
+h_max = 1.217 ; %  unit um
 stl_array = zeros([s, s]);
 for i = 1 : s
     for j = 1 : s
@@ -94,5 +94,5 @@ end
 [X,Y] = deal(1:s); 
 Z = stl_array;
 SOLID_FV = surf2solid(X,Y,Z,'elevation',0);
-stlwrite('test.stl',SOLID_FV)        % Save to binary .stl
+stlwrite('phase_to_abcd_setting_sample_2.stl',SOLID_FV)        % Save to binary .stl
 
