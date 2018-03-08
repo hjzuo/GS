@@ -82,12 +82,12 @@ B = abs(input_intensity) .* exp(1i*signal);
 C = fftshift(fft2(fftshift(B)));
 imagesc(abs(C)) 
 
-
+h_offset = 1 ;  % um  mar-08-2018   substrate thickness, find interface error considered
 h_max = 1.217 ; %  unit um
 stl_array = zeros([s, s]);
 for i = 1 : s
     for j = 1 : s
-        stl_array(i,j) = (original(i, j)/ 256)* h_max;
+        stl_array(i,j) = (original(i, j)/ 256)* h_max + h_offset;
         
     end
 end
